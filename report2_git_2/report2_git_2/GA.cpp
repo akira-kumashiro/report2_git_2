@@ -132,7 +132,7 @@ void GA::calcResult(bool enableSort)
 			if (data[i].x[j] > varMax[j] || data[i].x[j] < varMin[j])//座標が場外にいるやつの処理
 				flag = false;
 		}
-		data[i].result = (data[i].functionValue - seg) / seg2 / coefficient;//与えられた関数の値から切片で設定した値を引いて2乗する→与えられた関数の値が小さいやつが強くなる
+		data[i].result = seg2 == 0 ? 0 : (data[i].functionValue - seg) / seg2 / coefficient;//与えられた関数の値から切片で設定した値を引いて2乗する→与えられた関数の値が小さいやつが強くなる
 		//data[i].result = std::abs(data[i].functionValue - seg);
 
 		if (!flag)//場外に出たやつの処理
