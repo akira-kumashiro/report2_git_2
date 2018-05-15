@@ -11,11 +11,8 @@ int main()
 {
 	double varMax[] = { 4.0,4.0 };
 	double varMin[] = { -1.5,-3.0 };
-
-	//配列をstd::vectorへ変換
-	//std::vector<double> vMax(varMax, std::end(varMax));
-	//std::vector<double> vMin(varMin, std::end(varMin));
-	GA ga(MAX_GENOM_LIST, VAR_NUM, std::vector<double>(varMax, std::end(varMax)) , std::vector<double>(varMin, std::end(varMin)));//遺伝的アルゴリズム諸関数をまとめたクラスの宣言
+	//遺伝的アルゴリズム諸関数をまとめたクラスの宣言
+	GA ga(MAX_GENOM_LIST, VAR_NUM, std::vector<double>(varMax, std::end(varMax)), std::vector<double>(varMin, std::end(varMin)));
 
 	for (int i = 0; i <= MAX_GENERATION; i++)//メインのループ
 	{
