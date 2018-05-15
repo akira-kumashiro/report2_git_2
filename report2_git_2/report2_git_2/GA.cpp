@@ -87,16 +87,14 @@ void GA::mutation()
 
 void GA::calc(bool enableDisplay, bool enableOneLine)
 {
-	int minNum = 0, maxNum = 0;
+	int minNum = 0;
 	calcResult();
-	for (int i = 0; i < data.size(); i++)//評価関数が最小の奴と最大のやつを検索
+	for (int i = 0; i < data.size(); i++)//評価関数が最小の奴を検索
 	{
 		if (data[i].result < data[minNum].result)
 			minNum = i;
-		if (data[i].result > data[maxNum].result)
-			maxNum = i;
 	}
-	if (data[maxNum].functionValue - eliteData.functionValue > 0.00001)
+	if (searchRank(0).functionValue - eliteData.functionValue > 0.00001)
 		isChanged = true;
 	//評価関数が最もいいやつを保存
 	data[minNum] = eliteData;
@@ -185,7 +183,7 @@ void GA::displayValues(bool enableOneLine)
 	}
 }
 
-GA::Data GA::searchRank(int num)
+GA::Data GA::searchRank(int num)//評価がいい順
 {
 	std::vector<Data> data_temp = data;
 	std::sort(data_temp.begin(), data_temp.end(), [](const Data& x, const Data& y) { return x.functionValue < y.functionValue; });

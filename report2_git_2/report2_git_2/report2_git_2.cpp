@@ -1,4 +1,7 @@
-﻿#include "stdafx.h"
+﻿//GitHub
+//https://github.com/akira-kumashiro/report2_git_2
+
+#include "stdafx.h"
 #include "GA.h"
 
 #define MAX_GENERATION 30000
