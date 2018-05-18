@@ -59,8 +59,8 @@ void GA::blxAlphaCrossover()
 			double ave = (data[i].x[j] + data[i + 1].x[j]) / 2;
 			double length = std::abs((data[i].x[j] - data[i + 1].x[j]));
 
-			data[i].x[j] = random(ave - length * (1 + alpha * 2) / 2, ave + length * (1 + alpha * 2) / 2);
-			data[i + 1].x[j] = random(ave - length * (1 + alpha * 2) / 2, ave + length * (1 + alpha * 2) / 2);
+			data[i].x[j] = random(ave - length * (1/2 + alpha), ave + length * (1/2 + alpha));
+			data[i + 1].x[j] = random(ave - length * (1/2 + alpha), ave + length * (1/2 + alpha));
 		}
 	}
 }
